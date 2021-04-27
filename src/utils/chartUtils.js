@@ -8,7 +8,7 @@ import * as portfolioUtils from '../utils/portfolioUtils';
  * @param {Date} endDate
  */
 export const getChartLabels = async (startDate, endDate) => {
-  const portfolio = portfolioUtils.portfolio();
+  const portfolio = portfolioUtils.getPortfolio();
   if (!portfolio) {
     return { xAxisLabels: [], dataPoints: [] };
   }

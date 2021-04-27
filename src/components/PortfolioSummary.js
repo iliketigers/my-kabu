@@ -13,7 +13,7 @@ class PortfolioSummary extends Component {
   };
 
   fetchPortfolioValue = async (date = new Date()) => {
-    const portfolio = portfolioUtils.portfolio();
+    const portfolio = portfolioUtils.getPortfolio();
     if (!portfolio) {
       return 0;
     }
@@ -36,7 +36,7 @@ class PortfolioSummary extends Component {
   }
 
   render() {
-    const portfolio = portfolioUtils.portfolio();
+    const portfolio = portfolioUtils.getPortfolio();
 
     return (
       <div className="main">

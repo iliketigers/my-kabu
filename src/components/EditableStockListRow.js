@@ -81,7 +81,7 @@ export class EditableStockListRow extends Component {
     });
   }
   render() {
-    const portfolio = portfolioUtils.portfolio();
+    const portfolio = portfolioUtils.getPortfolio();
     const id = portfolio.lots[this.props.lot].id;
     let yesterdaysValue = 0;
     let todaysValue = 0;

@@ -16,7 +16,7 @@ export function calculatePercentChange(oldValue, newValue) {
 }
 
 export function getNumberOfShares(index) {
-  const portfolio = portfolioUtils.portfolio();
+  const portfolio = portfolioUtils.getPortfolio();
   if (portfolio) {
     const portfolioEntry = portfolio.lots[index];
     return portfolioEntry.boughtShares - portfolioEntry.soldShares;

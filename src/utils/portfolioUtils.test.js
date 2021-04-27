@@ -1,4 +1,4 @@
-import * as portfolioUtils from './portfolioUtils';
+import * as portfolioUtils from '../utils/portfolioUtils';
 
 class LocalStorageMock {
   constructor() {
@@ -40,7 +40,7 @@ describe('Functions that manipulate the portfolio (CRUD)', () => {
         new Date('2020-05-06'),
         'RobinHood'
       );
-      const portfolio = portfolioUtils.portfolio();
+      const portfolio = portfolioUtils.getPortfolio();
       expect(portfolio.lots.length).toEqual(1);
       expect(portfolio.lots[0].ticker).toEqual('FAKE');
     });
@@ -53,7 +53,7 @@ describe('Functions that manipulate the portfolio (CRUD)', () => {
         '2020-05-06',
         'RobinHood'
       );
-      const portfolio = portfolioUtils.portfolio();
+      const portfolio = portfolioUtils.getPortfolio();
       expect(portfolio.lots[0].boughtShares).toEqual(3);
     });
 
@@ -65,7 +65,7 @@ describe('Functions that manipulate the portfolio (CRUD)', () => {
         '2020-05-06',
         'RobinHood'
       );
-      const portfolio = portfolioUtils.portfolio();
+      const portfolio = portfolioUtils.getPortfolio();
       expect(portfolio.lots[0].boughtPrice).toEqual(40.23);
     });
 
@@ -77,7 +77,7 @@ describe('Functions that manipulate the portfolio (CRUD)', () => {
         new Date('2020-05-06'),
         'RobinHood'
       );
-      const portfolio = portfolioUtils.portfolio();
+      const portfolio = portfolioUtils.getPortfolio();
       expect(portfolio.lots[0].boughtDate).toEqual('2020-05-06T00:00:00.000Z');
     });
     it('correctly adds inputted broker to portfolio', () => {
@@ -88,7 +88,7 @@ describe('Functions that manipulate the portfolio (CRUD)', () => {
         '2020-05-06',
         'RobinHood'
       );
-      const portfolio = portfolioUtils.portfolio();
+      const portfolio = portfolioUtils.getPortfolio();
       expect(portfolio.lots[0].broker).toEqual('RobinHood');
     });
   });
@@ -97,7 +97,7 @@ describe('Functions that manipulate the portfolio (CRUD)', () => {
     it('removes a lot from the localstorage portfolio', () => {
       portfolioUtils.addLotToPortfolio('FAKE');
       portfolioUtils.deleteLotFromPortfolio(1234);
-      const portfolio = portfolioUtils.portfolio();
+      const portfolio = portfolioUtils.getPortfolio();
       expect(portfolio.lots.length).toEqual(0);
     });
   });

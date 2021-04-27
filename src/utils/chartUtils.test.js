@@ -143,7 +143,7 @@ describe('fetchPortfolioValuePromises', () => {
       'Mon Dec 14 2020 12:00:00 GMT-0800 (Pacific Standard Time)'
     );
     const dateRange = dateUtils.getDateRange(startDate, endDate);
-    const portfolio = portfolioUtils.portfolio();
+    const portfolio = portfolioUtils.getPortfolio();
     const promises = await chartUtils.fetchPortfolioValuePromises(
       dateRange,
       portfolio
@@ -170,7 +170,7 @@ describe('fetchPortfolioValue', () => {
 
   it('datepicker', async () => {
     const date = new Date('2020-12-10T20:00:00.000Z');
-    const portfolio = portfolioUtils.portfolio();
+    const portfolio = portfolioUtils.getPortfolio();
     const data = await chartUtils.fetchPortfolioValue(portfolio, date);
     expect(data).toBe(4154.09);
   });
@@ -179,7 +179,7 @@ describe('fetchPortfolioValue', () => {
     const date = new Date(
       'Tue Dec 29 2020 17:24:29 GMT-0800 (Pacific Standard Time)'
     );
-    const portfolio = portfolioUtils.portfolio();
+    const portfolio = portfolioUtils.getPortfolio();
     const data = await chartUtils.fetchPortfolioValue(portfolio, date);
     expect(data).toBe(4442.75);
   });
